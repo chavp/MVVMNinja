@@ -11,6 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjectBilling.MVP.Models;
+using ProjectBilling.MVP.Views;
+using ProjectBilling.MVP.Presentors;
 
 namespace ProjectBilling.MVP
 {
@@ -19,9 +22,20 @@ namespace ProjectBilling.MVP
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IProjectsModel _model = null;
+
         public MainWindow()
         {
             InitializeComponent();
+            _model = new ProjectsModel();
+        }
+
+        private void ShowProjectsButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProjectsView view = new ProjectsView();
+            ProjectsPresenter presenter = new ProjectsPresenter(view, _model);
+            view.Owner = this;
+            view.Show();
         }
     }
 }

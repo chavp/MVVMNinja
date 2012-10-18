@@ -1,0 +1,15 @@
+﻿<Window x:Class="ProjectBilling.MVP.Views.ProjectsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ProjectsView" Height="180" Width="180"
+        FocusManager.FocusedElement="{Binding ElementName=ProjectsComboBox}">
+    <UniformGrid Columns="2">
+        <Label Content="Project:" />
+        <ComboBox Name="ProjectsComboBox" Margin="5" SelectionChanged="ProjectsComboBox_SelectionChanged" />
+        <Label Content="Estimated Cost:" />
+        <TextBox Name="EstimatedTextBox" Margin="5" IsEnabled="False" />
+        <Label Content="Actual Cost:" />
+        <TextBox Name="ActualTextBox" Margin="5" IsEnabled="False" />
+        <Button Name="UpdateButton" Content="Update" Margin="5" IsEnabled="False" Click="UpdateButton_Click" />
+    </UniformGrid>
+</Window>
